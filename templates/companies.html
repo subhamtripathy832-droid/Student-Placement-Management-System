@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}Companies | {{ site_name }}{% endblock %}
+{% block content %}
+<div class="page-heading"><div><p class="eyebrow">ADMINISTRATION</p><h1>Companies</h1><p>Add organizations participating in campus recruitment.</p></div></div>
+<div class="split-layout"><section class="card"><h2>Add a company</h2><form method="post"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><label>Company name<input name="name" maxlength="160" required></label><label>Website<input type="url" name="website" maxlength="255" placeholder="https://example.com"></label><label>Location<input name="location" maxlength="160"></label><label>Description<textarea name="description" rows="4"></textarea></label><button class="button" type="submit">Add company</button></form></section><section class="card"><h2>Company directory</h2>{% if companies %}<div class="simple-list">{% for company in companies %}<div><b>{{ company.name }}</b><span>{{ company.location or 'Location not specified' }}</span></div>{% endfor %}</div>{% else %}<p class="empty">No companies added yet.</p>{% endif %}</section></div>
+{% endblock %}

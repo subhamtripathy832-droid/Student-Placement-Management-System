@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Home | {{ site_name }}{% endblock %}
+{% block content %}
+<section class="hero">
+  <div>
+    <p class="eyebrow">CAMPUS RECRUITMENT</p>
+    <h1>Bring placement activities into one place.</h1>
+    <p class="hero-copy">Explore opportunities, manage student applications and organize recruitment information through a simple portal.</p>
+    <div class="actions"><a class="button" href="{{ url_for('auth.register') }}">Create student account</a><a class="button button-outline" href="{{ url_for('auth.login') }}">Sign in</a></div>
+  </div>
+  <div class="hero-panel"><div class="hero-panel-icon">✦</div><h2>Placement Portal</h2><p>Students · Companies · Jobs · Applications</p></div>
+</section>
+<section class="section-heading"><h2>What you can do</h2><p>A central place for the main stages of campus placement.</p></section>
+<div class="card-grid three"><article class="card"><h3>Student profiles</h3><p>Maintain academic details used for opportunity eligibility.</p></article><article class="card"><h3>Job opportunities</h3><p>Browse company details, roles and eligibility criteria.</p></article><article class="card"><h3>Application tracking</h3><p>Submit applications and follow their current status.</p></article></div>
+{% endblock %}

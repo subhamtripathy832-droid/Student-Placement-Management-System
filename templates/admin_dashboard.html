@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard | {{ site_name }}{% endblock %}
+{% block content %}
+<div class="page-heading"><div><p class="eyebrow">ADMINISTRATION</p><h1>Admin dashboard</h1><p>Manage recruitment information and review activity.</p></div><a class="button" href="{{ url_for('admin.new_job') }}">Post a job</a></div>
+<div class="stats-grid five"><div class="stat-card"><span>Students</span><strong>{{ stats.students }}</strong></div><div class="stat-card"><span>Companies</span><strong>{{ stats.companies }}</strong></div><div class="stat-card"><span>Jobs</span><strong>{{ stats.jobs }}</strong></div><div class="stat-card"><span>Applications</span><strong>{{ stats.applications }}</strong></div><div class="stat-card"><span>Placements</span><strong>{{ stats.placements }}</strong></div></div>
+<div class="card-grid two"><a class="card card-link" href="{{ url_for('admin.students') }}"><h3>Manage students</h3><p>View registered student profiles.</p></a><a class="card card-link" href="{{ url_for('admin.companies') }}"><h3>Manage companies</h3><p>Add and review company records.</p></a></div>
+<section class="card"><div class="section-heading inline"><div><h2>Recent applications</h2><p>Latest activity from students.</p></div><a href="{{ url_for('admin.applications') }}">Manage applications</a></div>
+{% if applications %}<div class="table-wrap"><table><thead><tr><th>Student</th><th>Job</th><th>Company</th><th>Status</th></tr></thead><tbody>{% for item in applications %}<tr><td>{{ item.student.full_name }}</td><td>{{ item.job.title }}</td><td>{{ item.job.company.name }}</td><td>{{ item.status }}</td></tr>{% endfor %}</tbody></table></div>{% else %}<p class="empty">No applications have been submitted yet.</p>{% endif %}</section>
+{% endblock %}

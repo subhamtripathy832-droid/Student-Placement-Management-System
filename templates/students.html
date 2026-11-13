@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}Students | {{ site_name }}{% endblock %}
+{% block content %}
+<div class="page-heading"><div><p class="eyebrow">ADMINISTRATION</p><h1>Registered students</h1><p>Student records currently stored in the portal.</p></div></div>
+<div class="card table-card">{% if students %}<div class="table-wrap"><table><thead><tr><th>Name</th><th>Email</th><th>Department</th><th>Graduation year</th><th>CGPA</th></tr></thead><tbody>{% for student in students %}<tr><td>{{ student.full_name }}</td><td>{{ student.email }}</td><td>{{ student.department or '—' }}</td><td>{{ student.graduation_year or '—' }}</td><td>{{ student.cgpa if student.cgpa is not none else '—' }}</td></tr>{% endfor %}</tbody></table></div>{% else %}<p class="empty">No student accounts have registered yet.</p>{% endif %}</div>
+{% endblock %}

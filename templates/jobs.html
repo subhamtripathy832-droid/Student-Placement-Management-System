@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}Jobs | {{ site_name }}{% endblock %}
+{% block content %}
+<div class="page-heading"><div><p class="eyebrow">OPPORTUNITIES</p><h1>Available jobs</h1><p>Review the role and check the listed eligibility details before applying.</p></div></div>
+{% if jobs %}<div class="job-list">{% for job in jobs %}<article class="card job-card"><div class="job-top"><div><p class="eyebrow">{{ job.company.name }}</p><h2>{{ job.title }}</h2><p class="muted">{{ job.location or 'Location not specified' }}</p></div><span class="status">Open</span></div><p>{{ job.description }}</p><div class="criteria"><span>Minimum CGPA: <b>{{ job.minimum_cgpa }}</b></span><span>Departments: <b>{{ job.eligible_departments }}</b></span><span>Graduation year: <b>{{ job.graduation_year or 'Any' }}</b></span><span>Deadline: <b>{{ job.deadline.strftime('%d %b %Y') if job.deadline else 'Not specified' }}</b></span></div>
+  {% if job.is_student_eligible(current_user) %}<form method="post" action="{{ url_for('student.apply', job_id=job.id) }}" onsubmit="return confirmApply();"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="button" type="submit">Apply now</button></form>{% else %}<p class="notice">Your current profile does not meet the eligibility criteria or is missing a required academic detail.</p>{% endif %}</article>{% endfor %}</div>{% else %}<div class="card empty">No active job postings are available right now.</div>{% endif %}
+{% endblock %}

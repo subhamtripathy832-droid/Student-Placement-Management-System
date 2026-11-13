@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}My Profile | {{ site_name }}{% endblock %}
+{% block content %}
+<div class="auth-card wide"><p class="eyebrow">STUDENT PROFILE</p><h1>Update profile</h1>
+<form method="post"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+<div class="form-grid"><label>Full name<input name="full_name" maxlength="120" required value="{{ current_user.full_name }}"></label><label>Email<input value="{{ current_user.email }}" disabled><small>Email changes are not enabled in this starter.</small></label><label>Department<input name="department" maxlength="100" value="{{ current_user.department or '' }}"></label><label>Graduation year<input type="number" name="graduation_year" min="2000" max="2100" value="{{ current_user.graduation_year or '' }}"></label><label>CGPA (out of 10)<input type="number" name="cgpa" min="0" max="10" step="0.01" value="{{ current_user.cgpa or '' }}"></label></div><button class="button" type="submit">Save changes</button>
+</form></div>
+{% endblock %}

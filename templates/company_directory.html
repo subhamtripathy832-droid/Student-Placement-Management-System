@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}Company Directory | {{ site_name }}{% endblock %}
+{% block content %}
+<div class="page-heading"><div><p class="eyebrow">DIRECTORY</p><h1>Companies</h1><p>Organizations listed in the placement portal.</p></div></div>
+<div class="card-grid two">{% for company in companies %}<article class="card"><h2>{{ company.name }}</h2><p>{{ company.location or 'Location not specified' }}</p>{% if company.description %}<p>{{ company.description }}</p>{% endif %}{% if company.website %}<a href="{{ company.website }}" target="_blank" rel="noopener noreferrer">Company website</a>{% endif %}</article>{% else %}<div class="card empty">No companies have been added.</div>{% endfor %}</div>
+{% endblock %}
