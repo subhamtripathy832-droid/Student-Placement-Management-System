@@ -192,7 +192,37 @@ These are sample rules. Confirm your institution's actual placement policy befor
 
 ## Screenshots
 
-Add your own screenshots in the `screenshots/` directory after running the application. Do not add screenshots containing real student personal data or credentials.
+## Application Screenshots
+
+### 1. Admin Dashboard
+The administrator dashboard provides an overview of students, companies, job postings and placement applications.
+
+![Admin Dashboard](screenshots/admin-dashboard.png)
+
+### 2. Company Management
+Administrators can add companies and manage company information.
+
+![Company Management](screenshots/company-management.png)
+
+### 3. Job Listings
+Students can browse available job opportunities and view eligibility requirements.
+
+![Job Listings](screenshots/job-listings.png)
+
+### 4. Student Dashboard
+The student dashboard provides access to profile information, available jobs and application details.
+
+![Student Dashboard](screenshots/student-dashboard.png)
+
+### 5. My Applications
+Students can view their submitted applications and track their current status.
+
+![My Applications](screenshots/my-applications.png)
+
+### 6. Admin Application Management
+Administrators can review applications and update their status.
+
+![Admin Applications](screenshots/admin-applications.png)
 
 ## Future enhancements
 
